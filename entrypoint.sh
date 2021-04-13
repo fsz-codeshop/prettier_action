@@ -52,7 +52,13 @@ fi
 PRETTIER_RESULT=0
 echo "Prettifying files..."
 echo "Files:"
+echo "PRETTIER_RESULT_1=$PRETTIER_RESULT"
 prettier $INPUT_PRETTIER_OPTIONS || { PRETTIER_RESULT=$?; echo "Problem running prettier with $INPUT_PRETTIER_OPTIONS"; }
+echo "PRETTIER_RESULT_2=$PRETTIER_RESULT"
+
+echo "DEBUGGING COMMAND"
+prettier $INPUT_PRETTIER_OPTIONS
+echo "RESULT=$?"
 
 # To keep runtime good, just continue if something was changed
 if _git_changed; then
